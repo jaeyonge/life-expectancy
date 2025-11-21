@@ -1,0 +1,611 @@
+{
+  "referenceYear": 2023,
+  "entries": [
+    {
+      "age": 0,
+      "total": 83.5,
+      "male": 80.6,
+      "female": 86.4
+    },
+    {
+      "age": 1,
+      "total": 82.7,
+      "male": 79.8,
+      "female": 85.6
+    },
+    {
+      "age": 2,
+      "total": 81.7,
+      "male": 78.8,
+      "female": 84.6
+    },
+    {
+      "age": 3,
+      "total": 80.7,
+      "male": 77.8,
+      "female": 83.6
+    },
+    {
+      "age": 4,
+      "total": 79.7,
+      "male": 76.8,
+      "female": 82.6
+    },
+    {
+      "age": 5,
+      "total": 78.7,
+      "male": 75.8,
+      "female": 81.6
+    },
+    {
+      "age": 6,
+      "total": 77.7,
+      "male": 74.8,
+      "female": 80.7
+    },
+    {
+      "age": 7,
+      "total": 76.8,
+      "male": 73.8,
+      "female": 79.7
+    },
+    {
+      "age": 8,
+      "total": 75.8,
+      "male": 72.9,
+      "female": 78.7
+    },
+    {
+      "age": 9,
+      "total": 74.8,
+      "male": 71.9,
+      "female": 77.7
+    },
+    {
+      "age": 10,
+      "total": 73.8,
+      "male": 70.9,
+      "female": 76.7
+    },
+    {
+      "age": 11,
+      "total": 72.8,
+      "male": 69.9,
+      "female": 75.7
+    },
+    {
+      "age": 12,
+      "total": 71.8,
+      "male": 68.9,
+      "female": 74.7
+    },
+    {
+      "age": 13,
+      "total": 70.8,
+      "male": 67.9,
+      "female": 73.7
+    },
+    {
+      "age": 14,
+      "total": 69.8,
+      "male": 66.9,
+      "female": 72.7
+    },
+    {
+      "age": 15,
+      "total": 68.8,
+      "male": 65.9,
+      "female": 71.7
+    },
+    {
+      "age": 16,
+      "total": 67.8,
+      "male": 64.9,
+      "female": 70.7
+    },
+    {
+      "age": 17,
+      "total": 66.8,
+      "male": 63.9,
+      "female": 69.7
+    },
+    {
+      "age": 18,
+      "total": 65.9,
+      "male": 62.9,
+      "female": 68.8
+    },
+    {
+      "age": 19,
+      "total": 64.9,
+      "male": 62.0,
+      "female": 67.8
+    },
+    {
+      "age": 20,
+      "total": 63.9,
+      "male": 61.0,
+      "female": 66.8
+    },
+    {
+      "age": 21,
+      "total": 62.9,
+      "male": 60.0,
+      "female": 65.8
+    },
+    {
+      "age": 22,
+      "total": 61.9,
+      "male": 59.0,
+      "female": 64.8
+    },
+    {
+      "age": 23,
+      "total": 60.9,
+      "male": 58.1,
+      "female": 63.8
+    },
+    {
+      "age": 24,
+      "total": 60.0,
+      "male": 57.1,
+      "female": 62.9
+    },
+    {
+      "age": 25,
+      "total": 59.0,
+      "male": 56.1,
+      "female": 61.9
+    },
+    {
+      "age": 26,
+      "total": 58.0,
+      "male": 55.1,
+      "female": 60.9
+    },
+    {
+      "age": 27,
+      "total": 57.0,
+      "male": 54.2,
+      "female": 59.9
+    },
+    {
+      "age": 28,
+      "total": 56.1,
+      "male": 53.2,
+      "female": 58.9
+    },
+    {
+      "age": 29,
+      "total": 55.1,
+      "male": 52.2,
+      "female": 58.0
+    },
+    {
+      "age": 30,
+      "total": 54.1,
+      "male": 51.3,
+      "female": 57.0
+    },
+    {
+      "age": 31,
+      "total": 53.2,
+      "male": 50.3,
+      "female": 56.0
+    },
+    {
+      "age": 32,
+      "total": 52.2,
+      "male": 49.3,
+      "female": 55.0
+    },
+    {
+      "age": 33,
+      "total": 51.2,
+      "male": 48.4,
+      "female": 54.0
+    },
+    {
+      "age": 34,
+      "total": 50.2,
+      "male": 47.4,
+      "female": 53.1
+    },
+    {
+      "age": 35,
+      "total": 49.3,
+      "male": 46.4,
+      "female": 52.1
+    },
+    {
+      "age": 36,
+      "total": 48.3,
+      "male": 45.5,
+      "female": 51.1
+    },
+    {
+      "age": 37,
+      "total": 47.3,
+      "male": 44.5,
+      "female": 50.1
+    },
+    {
+      "age": 38,
+      "total": 46.4,
+      "male": 43.6,
+      "female": 49.2
+    },
+    {
+      "age": 39,
+      "total": 45.4,
+      "male": 42.6,
+      "female": 48.2
+    },
+    {
+      "age": 40,
+      "total": 44.4,
+      "male": 41.6,
+      "female": 47.2
+    },
+    {
+      "age": 41,
+      "total": 43.5,
+      "male": 40.7,
+      "female": 46.3
+    },
+    {
+      "age": 42,
+      "total": 42.5,
+      "male": 39.7,
+      "female": 45.3
+    },
+    {
+      "age": 43,
+      "total": 41.6,
+      "male": 38.8,
+      "female": 44.3
+    },
+    {
+      "age": 44,
+      "total": 40.6,
+      "male": 37.9,
+      "female": 43.4
+    },
+    {
+      "age": 45,
+      "total": 39.7,
+      "male": 36.9,
+      "female": 42.4
+    },
+    {
+      "age": 46,
+      "total": 38.7,
+      "male": 36.0,
+      "female": 41.5
+    },
+    {
+      "age": 47,
+      "total": 37.8,
+      "male": 35.0,
+      "female": 40.5
+    },
+    {
+      "age": 48,
+      "total": 36.8,
+      "male": 34.1,
+      "female": 39.5
+    },
+    {
+      "age": 49,
+      "total": 35.9,
+      "male": 33.2,
+      "female": 38.6
+    },
+    {
+      "age": 50,
+      "total": 35.0,
+      "male": 32.3,
+      "female": 37.6
+    },
+    {
+      "age": 51,
+      "total": 34.0,
+      "male": 31.4,
+      "female": 36.7
+    },
+    {
+      "age": 52,
+      "total": 33.1,
+      "male": 30.4,
+      "female": 35.7
+    },
+    {
+      "age": 53,
+      "total": 32.2,
+      "male": 29.5,
+      "female": 34.8
+    },
+    {
+      "age": 54,
+      "total": 31.3,
+      "male": 28.7,
+      "female": 33.8
+    },
+    {
+      "age": 55,
+      "total": 30.4,
+      "male": 27.8,
+      "female": 32.9
+    },
+    {
+      "age": 56,
+      "total": 29.4,
+      "male": 26.9,
+      "female": 32.0
+    },
+    {
+      "age": 57,
+      "total": 28.5,
+      "male": 26.0,
+      "female": 31.0
+    },
+    {
+      "age": 58,
+      "total": 27.6,
+      "male": 25.1,
+      "female": 30.1
+    },
+    {
+      "age": 59,
+      "total": 26.7,
+      "male": 24.3,
+      "female": 29.1
+    },
+    {
+      "age": 60,
+      "total": 25.9,
+      "male": 23.4,
+      "female": 28.2
+    },
+    {
+      "age": 61,
+      "total": 25.0,
+      "male": 22.6,
+      "female": 27.3
+    },
+    {
+      "age": 62,
+      "total": 24.1,
+      "male": 21.7,
+      "female": 26.3
+    },
+    {
+      "age": 63,
+      "total": 23.2,
+      "male": 20.9,
+      "female": 25.4
+    },
+    {
+      "age": 64,
+      "total": 22.3,
+      "male": 20.0,
+      "female": 24.5
+    },
+    {
+      "age": 65,
+      "total": 21.5,
+      "male": 19.2,
+      "female": 23.6
+    },
+    {
+      "age": 66,
+      "total": 20.6,
+      "male": 18.4,
+      "female": 22.6
+    },
+    {
+      "age": 67,
+      "total": 19.7,
+      "male": 17.6,
+      "female": 21.7
+    },
+    {
+      "age": 68,
+      "total": 18.9,
+      "male": 16.8,
+      "female": 20.8
+    },
+    {
+      "age": 69,
+      "total": 18.0,
+      "male": 16.0,
+      "female": 19.9
+    },
+    {
+      "age": 70,
+      "total": 17.2,
+      "male": 15.2,
+      "female": 19.0
+    },
+    {
+      "age": 71,
+      "total": 16.4,
+      "male": 14.5,
+      "female": 18.1
+    },
+    {
+      "age": 72,
+      "total": 15.6,
+      "male": 13.7,
+      "female": 17.3
+    },
+    {
+      "age": 73,
+      "total": 14.8,
+      "male": 13.0,
+      "female": 16.4
+    },
+    {
+      "age": 74,
+      "total": 14.0,
+      "male": 12.3,
+      "female": 15.5
+    },
+    {
+      "age": 75,
+      "total": 13.2,
+      "male": 11.6,
+      "female": 14.7
+    },
+    {
+      "age": 76,
+      "total": 12.5,
+      "male": 10.9,
+      "female": 13.9
+    },
+    {
+      "age": 77,
+      "total": 11.7,
+      "male": 10.2,
+      "female": 13.0
+    },
+    {
+      "age": 78,
+      "total": 11.0,
+      "male": 9.5,
+      "female": 12.3
+    },
+    {
+      "age": 79,
+      "total": 10.3,
+      "male": 8.9,
+      "female": 11.5
+    },
+    {
+      "age": 80,
+      "total": 9.7,
+      "male": 8.3,
+      "female": 10.7
+    },
+    {
+      "age": 81,
+      "total": 9.0,
+      "male": 7.7,
+      "female": 10.0
+    },
+    {
+      "age": 82,
+      "total": 8.4,
+      "male": 7.1,
+      "female": 9.3
+    },
+    {
+      "age": 83,
+      "total": 7.8,
+      "male": 6.6,
+      "female": 8.7
+    },
+    {
+      "age": 84,
+      "total": 7.3,
+      "male": 6.2,
+      "female": 8.1
+    },
+    {
+      "age": 85,
+      "total": 6.8,
+      "male": 5.7,
+      "female": 7.5
+    },
+    {
+      "age": 86,
+      "total": 6.3,
+      "male": 5.3,
+      "female": 6.9
+    },
+    {
+      "age": 87,
+      "total": 5.8,
+      "male": 4.9,
+      "female": 6.4
+    },
+    {
+      "age": 88,
+      "total": 5.4,
+      "male": 4.5,
+      "female": 5.9
+    },
+    {
+      "age": 89,
+      "total": 5.0,
+      "male": 4.2,
+      "female": 5.5
+    },
+    {
+      "age": 90,
+      "total": 4.7,
+      "male": 3.9,
+      "female": 5.0
+    },
+    {
+      "age": 91,
+      "total": 4.3,
+      "male": 3.6,
+      "female": 4.7
+    },
+    {
+      "age": 92,
+      "total": 4.0,
+      "male": 3.3,
+      "female": 4.3
+    },
+    {
+      "age": 93,
+      "total": 3.7,
+      "male": 3.1,
+      "female": 4.0
+    },
+    {
+      "age": 94,
+      "total": 3.4,
+      "male": 2.8,
+      "female": 3.7
+    },
+    {
+      "age": 95,
+      "total": 3.2,
+      "male": 2.6,
+      "female": 3.4
+    },
+    {
+      "age": 96,
+      "total": 3.0,
+      "male": 2.4,
+      "female": 3.1
+    },
+    {
+      "age": 97,
+      "total": 2.8,
+      "male": 2.3,
+      "female": 2.9
+    },
+    {
+      "age": 98,
+      "total": 2.6,
+      "male": 2.1,
+      "female": 2.7
+    },
+    {
+      "age": 99,
+      "total": 2.4,
+      "male": 2.0,
+      "female": 2.5
+    },
+    {
+      "age": 100,
+      "total": 2.2,
+      "male": 1.8,
+      "female": 2.3
+    }
+  ]
+}
