@@ -1,61 +1,68 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { type FormEvent, useMemo, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
+import { type LifeExpectancyResponse } from "@/lib/life-expectancy";
 import { cn } from "@/lib/utils";
 
 type Gender = "m" | "f" | "all";
 
-const LIFE_EXPECTANCY: Record<Gender, number> = {
-  m: 76,
-  f: 81,
-  all: 79,
-};
-
-const MS_PER_YEAR = 1000 * 60 * 60 * 24 * 365.25;
-
-function calculateAgeYears(birthdate: string): number {
-  const parsed = new Date(birthdate);
-  if (Number.isNaN(parsed.getTime())) return 0;
-  const diff = Date.now() - parsed.getTime();
-  return diff > 0 ? diff / MS_PER_YEAR : 0;
-}
-
 export default function Home() {
   const [birthdate, setBirthdate] = useState("");
   const [gender, setGender] = useState<Gender>("all");
+  const [result, setResult] = useState<LifeExpectancyResponse | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const { ageYears, remainingSquares, elapsedSquares, totalYears } = useMemo(() => {
-    const age = calculateAgeYears(birthdate);
-    const total = LIFE_EXPECTANCY[gender];
-    const remainingYears = Math.max(total - age, 0);
-    const remaining = Math.ceil(remainingYears);
-    const elapsed = Math.min(total, Math.max(total - remaining, 0));
+  const { years, elapsedSquares, totalYears } = useMemo(() => {
+    if (!result) return { years: [], elapsedSquares: 0, totalYears: 0 };
 
-    return {
-      ageYears: age,
-      remainingSquares: remaining,
-      elapsedSquares: elapsed,
-      totalYears: total,
-    };
-  }, [birthdate, gender]);
+    const lifespanYears = result.ageInReferenceYear + result.remainingYearsRounded;
+    const yearSquares = Array.from({ length: lifespanYears }, (_, index) => {
+      const yearNumber = index + 1;
+      const elapsed = index < result.ageInReferenceYear;
+      return { yearNumber, elapsed };
+    });
 
-  const years = useMemo(
-    () =>
-      Array.from({ length: totalYears }, (_, index) => {
-        const yearNumber = index + 1;
-        const elapsed = index < elapsedSquares;
-        return { yearNumber, elapsed };
-      }),
-    [elapsedSquares, totalYears],
-  );
+    return { years: yearSquares, elapsedSquares: result.ageInReferenceYear, totalYears: lifespanYears };
+  }, [result]);
 
-  const formattedAge = ageYears ? ageYears.toFixed(1) : "0.0";
-  const remainingYears = Math.max(totalYears - ageYears, 0).toFixed(1);
+  const formattedAge = result ? result.ageInReferenceYear.toFixed(0) : "0";
+  const remainingYears = result ? result.remainingYears.toFixed(1) : "0.0";
+  const roundedRemaining = result ? result.remainingYearsRounded : 0;
+  const referenceYear = result?.referenceYear;
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/life-expectancy", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ birthdate, gender }),
+      });
+
+      const payload = (await response.json()) as LifeExpectancyResponse | { error?: string };
+      if (!response.ok || "error" in payload) {
+        const message = "error" in payload && payload.error ? payload.error : "Unable to compute life expectancy.";
+        throw new Error(message);
+      }
+
+      setResult(payload as LifeExpectancyResponse);
+    } catch (submissionError) {
+      const message = submissionError instanceof Error ? submissionError.message : "Unable to compute life expectancy.";
+      setError(message);
+      setResult(null);
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-10">
@@ -68,7 +75,7 @@ export default function Home() {
       </header>
 
       <section className="mb-8 rounded-xl border bg-card p-6 shadow-sm">
-        <form className="grid gap-4 sm:grid-cols-3 sm:items-end">
+        <form className="grid gap-4 sm:grid-cols-3 sm:items-end" onSubmit={handleSubmit}>
           <div className="space-y-2 sm:col-span-2">
             <Label htmlFor="birthdate">Birthdate (yyyy-mm-dd)</Label>
             <Input
@@ -77,33 +84,40 @@ export default function Home() {
               value={birthdate}
               onChange={(event) => setBirthdate(event.target.value)}
               placeholder="yyyy-mm-dd"
+              required
             />
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="gender">Gender</Label>
-            <Select
-              id="gender"
-              value={gender}
-              onChange={(event) => setGender(event.target.value as Gender)}
-            >
+            <Select id="gender" value={gender} onChange={(event) => setGender(event.target.value as Gender)} required>
               <option value="all">All</option>
               <option value="m">Male</option>
               <option value="f">Female</option>
             </Select>
           </div>
 
-          <div className="sm:col-span-3">
-            <Button type="button" className="w-full sm:w-auto" onClick={() => setBirthdate(birthdate)}>
-              Update Life Grid
+          <div className="sm:col-span-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <div className="text-sm text-muted-foreground">
+              Calculations use the 2023 life expectancy table (ceiling-rounded).
+              {referenceYear ? ` Reference year: ${referenceYear}.` : ""}
+            </div>
+            <Button type="submit" className="w-full sm:w-auto" disabled={isSubmitting}>
+              {isSubmitting ? "Updating..." : "Update Life Grid"}
             </Button>
           </div>
         </form>
 
+        {error ? (
+          <div className="mt-4 rounded-md border border-destructive/40 bg-destructive/5 p-3 text-sm text-destructive">
+            {error}
+          </div>
+        ) : null}
+
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
-          <SummaryCard label="Age" value={`${formattedAge} years`} />
-          <SummaryCard label="Remaining (ceiling)" value={`${remainingSquares} years`} />
-          <SummaryCard label="Total lifespan" value={`${totalYears} years`} />
+          <SummaryCard label="Age in 2023" value={`${formattedAge} years`} />
+          <SummaryCard label="Remaining (ceiling)" value={`${roundedRemaining} years`} />
+          <SummaryCard label="Residual life expectancy" value={`${remainingYears} years`} />
         </div>
       </section>
 
@@ -132,6 +146,12 @@ export default function Home() {
               </span>
             </div>
           ))}
+
+          {!years.length ? (
+            <div className="rounded-lg border border-dashed bg-muted/30 p-6 text-center text-sm text-muted-foreground">
+              Enter your birthdate and gender to see your life grid.
+            </div>
+          ) : null}
         </div>
       </section>
     </main>
